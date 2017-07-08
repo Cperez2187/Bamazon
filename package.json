@@ -1,0 +1,23 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "Amazon-like storefront using MySQL and node",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cperez2187/Bamazon.git"
+  },
+  "author": "Cesar Perez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cperez2187/Bamazon/issues"
+  },
+  "homepage": "https://github.com/Cperez2187/Bamazon#readme",
+  "dependencies": {
+    "inquirer": "^3.1.1",
+    "mysql": "^2.13.0"
+  }
+}
