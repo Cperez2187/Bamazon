@@ -16,4 +16,5 @@ connection.connect((err) => {
 
 	console.log(`Connected as id ${connection.threadId}`);
 
+	// Create git ignore file for node modules
 });
