@@ -16,5 +16,19 @@ connection.connect((err) => {
 
 	console.log(`Connected as id ${connection.threadId}`);
 
-	// Create git ignore file for node modules
+	displayProducts();
 });
+
+function displayProducts() {
+
+	connection.query('SELECT * FROM products', (error, results) => {
+		if (error) throw error;
+
+		// console.log(results);
+		console.log('id   | Product Name       | Department Name     | Price    | Stock Quantity');
+		// Loop through table and display products
+		results.forEach((product) => {
+			console.log(`${product.id}   | ${product.product_name}       | ${product.department_name}     | ${product.price}    | ${product.stock_quantity}`);
+		});
+	});
+}
