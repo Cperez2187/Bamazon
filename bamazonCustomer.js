@@ -1,5 +1,7 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
+// Used to create CLI tables
+const Table = require('cli-table2');
 
 // Input connection info for the mysql database 
 const connection = mysql.createConnection({
@@ -24,11 +26,42 @@ function displayProducts() {
 	connection.query('SELECT * FROM products', (error, results) => {
 		if (error) throw error;
 
-		// console.log(results);
-		console.log('id   | Product Name       | Department Name     | Price    | Stock Quantity');
-		// Loop through table and display products
-		results.forEach((product) => {
-			console.log(`${product.id}   | ${product.product_name}       | ${product.department_name}     | ${product.price}    | ${product.stock_quantity}`);
-		});
+		productsTable(results);
 	});
 }
+
+function productsTable(results) {
+
+	// Create table with headers
+	const table = new Table({
+		head: ['ID', 'Product Name', 'Department Name', 'Price', 'Stock Qty']
+	});
+
+	// Populate the table by looping through the database
+	results.forEach((product) => {
+		table.push([product.id, product.product_name, product.department_name, product.price, product.stock_quantity]);
+	});
+
+	// Display table
+	console.log(table.toString());
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
